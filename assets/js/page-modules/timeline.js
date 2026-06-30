@@ -3,26 +3,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButton = document.getElementById("next");
     const timelinediv = document.querySelector(".timeline");
     const slides = document.querySelectorAll(".line");
-    const width = screen.width;
     let index = 0;
     let translateAxis = 0;
-    let translateAxisMobile = 0;
-    const slideWidth = width < 500 ? 300 : 400;
     
-    slides[0].classList.add('active')
+    if (slides.length === 0) return;
+
+    slides[0].classList.add('active');
+
+    function getSlideWidth() {
+        const style = window.getComputedStyle(slides[0]);
+        return slides[0].offsetWidth + parseFloat(style.marginRight || 0);
+    }
 
     function updateTimeline() {
         timelinediv.style.transition = "margin-left 0.5s ease"; 
-        timelinediv.style.marginLeft = width < 500 ? translateAxisMobile + 'px' : translateAxis + 'px';
+        timelinediv.style.marginLeft = translateAxis + 'px';
     }
 
     function updateIndex(offset) {
         index = (index + offset + slides.length) % slides.length;
-    }
-
-    function updateTranslateAxis(offset) {
-        translateAxis += offset * slideWidth;
-        translateAxisMobile += offset * 300;
     }
 
     function updateSlideClass() {
@@ -31,28 +30,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     nextButton.addEventListener("click", () => {
+        const sw = getSlideWidth();
         if (index === slides.length - 1) {
             index = 0;
             translateAxis = 0;
-            translateAxisMobile = 0;
         } else {
             updateIndex(1);
-            updateTranslateAxis(-1);
+            translateAxis -= sw;
         }
         updateTimeline();
         updateSlideClass();
     });
 
     prevButton.addEventListener("click", () => {
+        const sw = getSlideWidth();
         if (index === 0) {
             index = slides.length - 1;
-            translateAxis = width < 500 ? -300 * slides.length : -400 * slides.length;
-            translateAxisMobile = -300 * slides.length;
+            translateAxis = -sw * (slides.length - 1);
         } else {
             updateIndex(-1);
-            updateTranslateAxis(1);
+            translateAxis += sw;
         }
         updateTimeline();
         updateSlideClass();
+    });
+
+    window.addEventListener("resize", () => {
+        translateAxis = -index * getSlideWidth();
+        updateTimeline();
     });
 });
