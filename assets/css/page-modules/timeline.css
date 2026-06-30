@@ -20,6 +20,7 @@
   scroll-snap-type: x mandatory;
   scrollbar-width: none; /* Firefox */
   padding-bottom: 20px;
+  align-items: flex-start;
 }
 .container .full .timeline::-webkit-scrollbar {
   display: none; /* Chrome/Safari */
@@ -60,7 +61,6 @@
 }
 .container .full .timeline .line p {
   font-size: 3rem;
-  display: flex;
   line-height: 3.5rem;
 }
 
