@@ -3,60 +3,41 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButton = document.getElementById("next");
     const timelinediv = document.querySelector(".timeline");
     const slides = document.querySelectorAll(".line");
-    let index = 0;
-    let translateAxis = 0;
     
     if (slides.length === 0) return;
 
-    slides[0].classList.add('active');
+    // Observe active slide based on scroll position
+    timelinediv.addEventListener('scroll', () => {
+        let index = Math.round(timelinediv.scrollLeft / getSlideWidth());
+        slides.forEach(slide => slide.classList.remove("active"));
+        if (slides[index]) slides[index].classList.add("active");
+    });
+
+    // Initialize first slide as active
+    slides[0].classList.add("active");
 
     function getSlideWidth() {
         const style = window.getComputedStyle(slides[0]);
         return slides[0].offsetWidth + parseFloat(style.marginRight || 0);
     }
 
-    function updateTimeline() {
-        timelinediv.style.transition = "margin-left 0.5s ease"; 
-        timelinediv.style.marginLeft = translateAxis + 'px';
-    }
-
-    function updateIndex(offset) {
-        index = (index + offset + slides.length) % slides.length;
-    }
-
-    function updateSlideClass() {
-        slides.forEach(slide => slide.classList.remove("active"));
-        slides[index].classList.add("active");
-    }
-
     nextButton.addEventListener("click", () => {
         const sw = getSlideWidth();
-        if (index === slides.length - 1) {
-            index = 0;
-            translateAxis = 0;
+        // If at the end, go back to start
+        if (timelinediv.scrollLeft + timelinediv.clientWidth >= timelinediv.scrollWidth - 10) {
+            timelinediv.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
-            updateIndex(1);
-            translateAxis -= sw;
+            timelinediv.scrollBy({ left: sw, behavior: 'smooth' });
         }
-        updateTimeline();
-        updateSlideClass();
     });
 
     prevButton.addEventListener("click", () => {
         const sw = getSlideWidth();
-        if (index === 0) {
-            index = slides.length - 1;
-            translateAxis = -sw * (slides.length - 1);
+        // If at the beginning, go to end
+        if (timelinediv.scrollLeft <= 10) {
+            timelinediv.scrollTo({ left: timelinediv.scrollWidth, behavior: 'smooth' });
         } else {
-            updateIndex(-1);
-            translateAxis += sw;
+            timelinediv.scrollBy({ left: -sw, behavior: 'smooth' });
         }
-        updateTimeline();
-        updateSlideClass();
-    });
-
-    window.addEventListener("resize", () => {
-        translateAxis = -index * getSlideWidth();
-        updateTimeline();
     });
 });
