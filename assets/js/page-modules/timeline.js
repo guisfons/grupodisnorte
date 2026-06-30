@@ -6,15 +6,31 @@ document.addEventListener("DOMContentLoaded", function () {
     
     if (slides.length === 0) return;
 
+    function adjustHeightToActiveSlide(slide) {
+        if (slide) {
+            timelinediv.style.height = slide.offsetHeight + 'px';
+        }
+    }
+
     // Observe active slide based on scroll position
     timelinediv.addEventListener('scroll', () => {
         let index = Math.round(timelinediv.scrollLeft / getSlideWidth());
         slides.forEach(slide => slide.classList.remove("active"));
-        if (slides[index]) slides[index].classList.add("active");
+        if (slides[index]) {
+            slides[index].classList.add("active");
+            adjustHeightToActiveSlide(slides[index]);
+        }
     });
 
     // Initialize first slide as active
     slides[0].classList.add("active");
+    // setTimeout to ensure layout is computed
+    setTimeout(() => adjustHeightToActiveSlide(slides[0]), 100);
+
+    window.addEventListener("resize", () => {
+        const activeSlide = Array.from(slides).find(s => s.classList.contains("active")) || slides[0];
+        adjustHeightToActiveSlide(activeSlide);
+    });
 
     function getSlideWidth() {
         const style = window.getComputedStyle(slides[0]);
