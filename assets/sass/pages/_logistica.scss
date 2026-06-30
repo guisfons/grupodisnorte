@@ -1,0 +1,139 @@
+.logistica {
+    &__section {
+        display: flex;
+        flex-direction: column;
+
+        &:nth-of-type(even) {
+            .logistica__header {
+                figure, h2 {
+                    order: 1;
+                }
+
+                h2 {
+                    margin-right: 0;
+                }
+
+                hr {
+                    margin-right: 2.2rem;
+                }
+            }
+
+            .logistica__content figure {
+                order: 1;
+            }
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-top: 2.7rem;
+
+        h2 {
+            color: $white;
+            margin: 0 2.3rem 0;
+            line-height: 3.6rem;
+        }
+
+        hr {
+            width: 100%;
+            border: none;
+            height: .2rem;
+            background-color: $white;
+            margin-top: auto;
+        }
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin: 4.4rem 0 2.7rem;
+
+        @include max (900) {
+            flex-direction: column;
+            row-gap: 5rem;
+        }
+
+        figure {
+            width: 56.8rem;
+            height: 52.8rem;
+            position: relative;
+
+            @include max (900) {
+                width: 30rem;
+                height: 30rem;
+            }
+
+            &::after {
+                content: '';
+                background-image: url('../img/mask.png');
+                width: 100%;
+                height: 100%;
+
+                position: absolute;
+                top: -5rem;
+                left: -2rem;
+
+                @include max (900) {
+                    display: none;
+                }
+            }
+
+            img {
+                width: 44.7rem;
+                height: 42.5rem;
+                object-fit: cover;
+                mask-image: url('../img/mask1.png');
+                mask-repeat: no-repeat;
+
+                @include max (900) {
+                    mask-image: none;
+                    border-radius: 50%;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        article {
+            font-size: 1.9rem;
+            line-height: 2.9rem;
+            color: $white;
+            max-width: 32rem;
+            width: 100%;
+
+            h3 {
+                font-family: $akrobat400;
+                font-size: 4.1rem;
+                line-height: 4.2rem;
+                margin-bottom: 3.4rem;
+
+                @include max (900) {
+                    font-size: 3.1rem;
+                    line-height: 3.2rem;
+                }
+
+                strong {
+                    font-family: $akrobat800;
+                }
+            }
+
+            p {
+                color: $white;
+            }
+
+            ul {
+                padding-left: 2.5rem;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                margin: 2rem auto;
+            }
+        }
+    }
+}

@@ -1,0 +1,372 @@
+.cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 86.7rem;
+    width: 90%;
+    margin: 0 auto;
+    transform: translateY(-1.2rem);
+
+    @include max (900) {
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    &__box {
+        width: 26.4rem;
+        height: 26.3rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &--logistica {
+            background-color: #336980;
+        }
+
+        &--comercial {
+            background-color: #225088;
+        }
+
+        &--broker {
+            background-color: #a3a3a3;
+        }
+
+        span {
+            margin: 1.2rem auto 2.5rem;
+            font-family: $akrobat800;
+            font-size: 2.5rem;
+            color: $white;
+            text-transform: uppercase;
+        }
+        
+        a {
+            max-width: 14.6rem;
+            width: 100%;
+            height: 3.5rem;
+            border-radius: 1.6rem;
+            background-color: $white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            font-family: $akrobat800;
+            font-size: 1.9rem;
+            color: #414042;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.quemsomos {
+    position: relative;
+    background-color: #ebebec;
+    margin-top: 6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    h2 {
+        color: $white;
+    }
+
+    &__text {
+        max-width: 45rem;
+        width: 100%;
+        background-image: url($ruido);
+        background-color: #214f87;
+        font-family: $akrobat400;
+        font-size: 1.7rem;
+        color: $white;
+        padding: 8rem 2rem 21.7rem 3rem;
+        white-space: pre-line;
+        transform: translateY(-1.7rem);
+
+        @include max (1280) {
+            max-width: 100%;
+            padding: 5rem 3rem;
+        }
+
+        p {
+            color: $white;
+        }
+    }
+
+    &__video {
+        margin-top: 12.2rem;
+        max-width: 64.6rem;
+        width: 100%;
+        max-height: 39.7rem;
+        aspect-ratio: 16 / 9;
+
+        position: relative;
+
+        @include max (1220) {
+            margin: 5rem auto;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center center;
+
+            transition: .3s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            cursor: pointer;
+            width: 9.9rem;
+            height: 9.9rem;
+            background-image: url('../img/play-btn.png');
+
+            transition: .3s ease-in-out;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &--active {
+            &::before, &::after {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 16 / 9;
+        }
+    }
+
+    &__bar {
+        position: absolute;
+        left: 0;
+        bottom: 6.5rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        min-height: 15rem;
+        background-color: $white;
+        box-shadow: 0px 4px 5px 0px rgba($color: $black, $alpha: .2);
+
+        @include max (1220) {
+            position: relative;
+            left: initial;
+            bottom: initial;
+        }
+    }
+    
+    &__box {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        cursor: default;
+        padding: 3rem;
+        background-color: $white;
+        transition: .3s ease-in-out;
+
+        &:hover {
+            background-color: #336980;
+
+            article {
+                color: $white;
+
+                p {
+                    color: $white;
+                }
+            }
+
+            figure img {
+                filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+            }
+        }
+
+        article {
+            font-size: 1.5rem;
+            font-family: $akrobat700;
+            text-align: right;
+            line-height: 1;
+            transition: .3s ease-in-out;
+
+            p {
+                line-height: 1;
+                transition: .3s ease-in-out;
+
+                &:first-of-type {
+                    margin-bottom: .5rem;
+                }
+
+                &:last-of-type strong {
+                    font-size: 3rem;
+                }
+
+                strong {
+                    font-size: 4.2rem;
+                    font-family: $akrobat800;
+                    line-height: 3rem;
+                    display: block;
+                }
+            }
+        }
+
+        figure {
+            img {
+                transition: .3s ease-in-out;
+            }
+        }
+    }
+}
+
+.fornecedores {
+    h2 {
+        margin-top: 4.5rem;
+    }
+
+    &__container {
+        margin: 4.8rem 0 5.4rem;
+
+        .slick {
+            &-track {
+                display: flex;
+                align-items: center;
+            }
+
+            &-dots {
+                margin: 6.4rem 0 0;
+            }
+        }
+
+        figure {
+            filter: grayscale(1);
+            transition: .3s ease-in-out;
+            height: 10rem;
+            margin: 0 3rem;
+
+            &:hover {
+                filter: grayscale(0);
+
+                span {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            img {
+                margin: 0 auto;
+                height: 100%;
+                width: auto;
+                object-fit: contain;
+            }
+
+            span {
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                width: 100%;
+                height: 100%;
+                background-color: rgba($color: #214f87, $alpha: .5);
+                backdrop-filter: blur(0.2rem);
+                border-radius: 3rem;
+
+                font-size: 2.5rem;
+                text-align: center;
+                color: $white;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 2rem;
+
+                transition: .3s ease-in-out;
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+}
+
+.blog-latest {
+    background-color: #336980;
+    padding: 5.5rem 0;
+
+    h2 {
+        margin: 0 0 4.5rem;
+        color: $white;
+    }
+
+    &__container {
+        max-width: 130.5rem;
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+
+        @include max (1440) {
+            column-gap: 3rem;
+            overflow-x: auto;
+            padding-bottom: 3rem;
+        }
+    }
+
+    &__item {
+        max-width: 43rem;
+        min-width: 43rem;
+        width: 100%;
+        color: #ebebec;
+
+        figure {
+            width: 100%;
+            height: 45.4rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        h3 {
+            margin: 3.5rem 0 3rem;
+            font-size: 2.5rem;
+            font-family: $akrobat800;
+        }
+
+        p {
+            color: $white;
+        }
+    }
+
+    & > a {
+        margin: 8.5rem auto 0;
+        font-family: $akrobat800;
+        font-size: 1.8rem;
+        text-align: center;
+        text-transform: uppercase;
+        color: #225088;
+        background-color: $white;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15.3rem;
+        height: 4.3rem;
+    }
+}

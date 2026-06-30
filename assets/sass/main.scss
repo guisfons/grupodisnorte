@@ -1,0 +1,23 @@
+@import 'abstracts/variables';
+@import 'abstracts/fonts';
+@import 'abstracts/utilities';
+
+@import 'base/reset';
+
+@import 'layout/footer';
+@import 'layout/header';
+
+@import 'components/slick';
+@import 'components/banner';
+@import 'components/faleconosco';
+@import 'components/trabalheconosco';
+@import 'components/content';
+@import 'components/regioesatendidas';
+@import 'components/evolucao';
+
+@import 'pages/home';
+@import 'pages/blog';
+@import 'pages/broker';
+@import 'pages/logistica';
+@import 'pages/comercial';
+@import 'pages/story';

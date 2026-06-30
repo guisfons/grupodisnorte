@@ -1,0 +1,28 @@
+.story {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5rem 0;
+
+    @include max (900) {
+        padding: 0 0 5rem;
+    }
+
+    figure.slick-slide img {
+        height: 80vh;
+        max-width: fit-content;
+        width: auto;
+        margin: 0 auto;
+
+        @include max (900) {
+            height: 100vh;
+        }
+    }
+
+    .slick-dots {
+        transform: translate(-50%, -3rem);
+        z-index: 9999;
+        position: absolute;
+        left: 50%;
+    }
+}

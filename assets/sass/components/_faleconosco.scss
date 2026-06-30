@@ -1,0 +1,215 @@
+.faleconosco {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 8.5rem 0;
+
+    @include max (900) {
+        padding: 8.5rem 0 !important;
+        justify-content: center;
+    }
+
+    .wpcf7 {
+        max-width: 52.9rem;
+        width: 90%;
+
+        p {
+            &:first-of-type {
+                margin-bottom: 2.9rem
+            }
+    
+            &:not(:first-of-type) {
+                margin-bottom: 1.2rem;
+            }
+    
+            label {
+                font-family: $akrobat800;
+                font-size: 1.7rem;
+                color: #414042;
+    
+                span {
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+
+    input, textarea {
+        &:not(input[type="submit"]) {
+            width: 100%;
+            height: 4.1rem;
+            border: .05rem solid #414042;
+            outline: none;
+            padding: 1rem;
+    
+            font-family: $akrobat400;
+            font-size: 1.5rem;
+            color: #414042;
+        }
+
+        &[type=submit] {
+            width: 8.5rem;
+            height: 3.6rem;
+            border: none;
+            background-color: #225088;
+            
+            font-size: 1.8rem;
+            font-family: $akrobat800;
+            text-transform: uppercase;
+            color: $white;
+            cursor: pointer;
+    
+            margin-bottom: 5.6rem;
+        }
+    }
+
+    textarea {
+        min-height: 11.9rem;
+        resize: none;
+    }
+
+    &__contato {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: auto;
+        max-width: 53.7rem;
+        width: 90%;
+        background-color: #225088;
+        padding: 3.9rem 0 3.9rem 6.6rem;
+        font-size: 1.9rem;
+        font-family: $akrobat700;
+        line-height: 2.4rem;
+        color: $white;
+
+        @include max (900) {
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+            padding: 3rem;
+            margin-left: 0;
+        }
+
+        span {
+            display: flex;
+            align-items: center;
+            gap: 3.2rem;
+            margin-bottom: .8rem;
+            margin-left: .5rem;
+
+            @include max (900) {
+                flex-direction: column;
+                margin-left: 0;
+                gap: 1rem !important;
+            }
+
+            &:first-of-type {
+                gap: 2.5rem;
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__redes {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 6.2rem;
+
+        @include max (900) {
+            justify-content: center;
+            text-align: center;
+
+            margin: 2rem 0 0 0;
+        }
+
+        p {
+            width: 100%;
+            margin-bottom: 3.2rem;
+            color: $white;
+
+            @include max (900) {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        & > a, button {
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            
+            max-width: 2.3rem;
+            width: 100%;
+
+            &:not(:last-of-type) {
+                margin-right: 2.5rem;
+            }
+
+            img {
+                display: block;
+                max-height: 2.3rem;
+            }
+        }
+
+        button {
+            margin-left: 2.5rem;
+        }
+    }
+
+    &__whatsapp {
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -3rem;
+            height: 3rem;
+            width: 10rem;
+        }
+
+        &:hover > .faleconosco__options {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        a {
+            transition: .3s ease-in-out;
+
+            &:hover {
+                color: #336980;
+            }
+        }
+    }
+
+    &__options {
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s ease-in-out;
+        position: absolute;
+        bottom: -9rem;
+        left: 50%;
+        transform: translateX(-50%);
+
+        padding: 1rem 2rem;
+        background-color: $white;
+        border-radius: 3rem;
+        width: 20rem;
+        font-size: 1.7rem;
+        font-family: $akrobat500;
+
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, .3);
+        z-index: 9;
+        line-height: 2rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            width: 100%;
+        }
+    }
+}

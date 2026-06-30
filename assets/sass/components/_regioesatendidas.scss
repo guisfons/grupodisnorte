@@ -1,0 +1,191 @@
+.regioes-atendidas {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ececec;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+
+    article {
+        max-width: 42.2rem;
+        width: 100%;
+
+        h3 {
+            font-family: $akrobat800;
+            font-size: 3.5rem;
+            margin: 5.2rem 0 2.9rem;
+            color: #1f6883;
+
+            display: flex;
+            align-items: center;
+
+            &::before {
+                content: '';
+                background-image: url('../img/mapa.png');
+                background-size: contain;
+                width: 5.1rem;
+                height: 4.9rem;
+
+                margin-right: 1.7rem;
+            }
+        }
+
+        p {
+            font-family: inherit;
+            line-height: 2.9rem;
+            margin-left: 6.8rem;
+            padding: 1rem 0;
+
+            border-bottom: 0.1rem solid #414042;
+
+            strong {
+                font-family: $akrobat800
+            }
+        }
+
+        @include max (900) {
+            & > p {
+                margin: 0 auto 2.5rem;
+            }
+        }
+    }
+
+    &__accordion {
+        margin: 2.5rem 0 0 6.8rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        @include max (900) {
+            margin: 0 auto;
+        }
+
+        input[type="search"] {
+            height: 4rem;
+            outline: none;
+            padding: 0 2rem;
+            width: 30.7rem;
+            border: 0.05rem solid #414042;
+        }
+
+        & > span {
+            color: red;
+            font-size: 1.5rem;
+            font-family: $akrobat800;
+        }
+    }
+
+    &__tab {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        width: 30.7rem;
+
+        @include max (900) {
+            width: 25rem;
+        }
+
+        span {
+            border: .05rem solid #414042;
+            font-family: $akrobat800;
+            font-size: 1.9rem;
+            line-height: 1;
+            text-transform: uppercase;
+
+            padding: 1.6rem;
+            color: #414042;
+
+            display: flex;
+            align-items: center;
+
+            cursor: pointer;
+            height: 3.6rem;
+
+            &:first-of-type {
+                width: 4rem;
+
+                justify-content: center;
+
+                @include max (900) {
+                    width: 3rem;
+                }
+            }
+
+            &:last-of-type {
+                width: 26.5rem;
+
+                @include max (900) {
+                    width: 20rem;
+                }
+            }
+        }
+    }
+
+    &__state {
+        font-size: 2.2rem;
+        text-align: center;
+        font-family: $akrobat800;
+        padding-top: 1rem;
+    }
+
+    &__content {
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition: .3s ease-in-out;
+        text-transform: capitalize;
+        padding-right: 2rem;
+        position: relative;
+
+        &--active {
+            height: fit-content;
+            opacity: 1;
+            visibility: visible;
+            max-height: 20rem;
+            overflow-y: auto;
+            margin: 2rem 0;
+        }
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        @include max (940) {
+            justify-content: center;
+            row-gap: 5rem;
+            margin-top: 5rem;
+        }
+    }
+
+    &__mapa {
+        max-width: 42.7rem;
+        width: 100%;
+        height: 42.7rem;
+        position: relative;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+
+            path {
+                transition: .3s ease-in-out;
+            }
+        }
+
+        span {
+            position: absolute;
+            transform: translate(-50%, -50%);
+
+            text-transform: uppercase;
+            color: $white;
+            opacity: 0.5;
+            font-size: 5rem;
+        }
+    }
+}

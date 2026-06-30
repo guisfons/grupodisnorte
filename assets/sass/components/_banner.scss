@@ -1,0 +1,136 @@
+.banner {
+    height: 50.4rem;
+    position: relative;
+
+    &:hover {
+        .slick-arrow {
+            opacity: 1;
+        }
+    }
+
+    figure {
+        display: flex !important;
+        align-items: center;
+        position: relative;
+
+        background-size: cover;
+        background-position: center center;
+
+        width: 100%;
+        height: 50.4rem;
+        overflow: hidden;
+
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 50.4vh;
+
+            @include max (900) {
+                top: 0;
+                transform: translate(-50%, 0);
+            }
+        }
+    }
+
+    article {
+        max-width: 40rem;
+        position: absolute;
+
+        opacity: 0;
+        transition: .8s ease-in;
+
+        p {
+            font-family: $akrobat700;
+            font-size: 3.5rem;
+            line-height: 4.1rem;
+            color: $white;
+
+            &:not(:has(> strong)) {
+                padding: 0.8rem 2.3rem;
+            }
+        }
+
+        strong {
+            background-color: #1b5ba8;
+            padding: .8rem 2.3rem;
+            display: block;
+            width: fit-content;
+
+            &:not(:last-of-type) {
+                margin-bottom: .4rem;
+            }
+        }
+    }
+
+    .slick {
+        &-current {
+            article {
+                opacity: 1;
+            }
+        }
+
+        &-arrow {
+            opacity: 0;
+            transition: .3s ease-in-out;
+        }
+
+        &-dots {
+            position: absolute;
+            bottom: 6rem;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &:has(> li:only-child) {
+                display: none;
+            }
+        }
+    }
+
+    &__tag {
+        position: absolute;
+        top: 0;
+        left: auto;
+        z-index: 1;
+
+        width: 19rem;
+        height: 19.8rem;
+        border-radius: 0 0 1rem 1rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @include max (900) {
+            width: 10rem;
+            height: 10.8rem;
+        }
+
+        img {
+            max-width: 10.2rem;
+            width: 100%;
+            height: auto;
+
+            @include max (900) {
+                max-width: 4rem;
+            }
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-family: $akrobat800;
+            text-transform: uppercase;
+            color: $white;
+
+            margin-top: 2rem;
+
+            @include max (900) {
+                font-size: 1.5rem;
+                margin-top: 1rem;
+            }
+        }
+    }
+}

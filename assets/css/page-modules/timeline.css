@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .full {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.container .full .timeline {
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+.container .full .timeline .line {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: auto;
+  margin-right: 50px;
+  opacity: 0.4;
+  transition: all 0.5s 0s ease-out;
+  gap: 15px;
+}
+@media (max-width: 1000px) {
+  .container .full .timeline .line {
+    width: 250px;
+    margin-right: 50px;
+    height: auto;
+  }
+}
+.container .full .timeline .line.active {
+  opacity: 1;
+}
+.container .full .timeline .line h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #336980;
+}
+.container .full .timeline .line p {
+  font-size: 3rem;
+  display: flex;
+  line-height: 3.5rem;
+}
+
+/* Timeline Images Styles */
+.container .full .timeline .line .line-images {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+.container .full .timeline .line figure {
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.container .full .timeline .line figure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+.container .full .timeline .line figure img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.container .buttons {
+  display: flex;
+  gap: 15px;
+}
+.container .buttons button.controls {
+  background-color: #336980;
+  outline: none;
+  border: none;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 100px;
+  color: #fff;
+  font-family: bold;
+  margin-top: 25px;
+  transition: 200ms all ease-in;
+}
+.container .buttons button.controls:hover {
+  transform: translateY(-5px);
+}

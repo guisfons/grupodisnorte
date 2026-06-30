@@ -1,0 +1,220 @@
+.equipe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #075c7b;
+
+    padding-top: 6.5rem !important;
+    padding-bottom: 6.5rem !important;
+
+    @include max (900) {
+        justify-content: center;
+    }
+
+    article {
+        max-width: 35.5rem;
+        width: 100%;
+        color: $white;
+        font-size: 1.9rem;
+        line-height: 2.9rem;
+        text-align: justify;
+
+        h3 {
+            font-size: 5rem;
+            line-height: 5.4rem;
+            margin-bottom: 3.3rem;
+        }
+
+        p {
+            color: $white;
+        }
+    }
+
+    figure {
+        width: 56.5rem;
+        height: 53.5rem;
+
+        position: relative;
+
+
+        @include max (900) {
+            width: 30rem;
+            height: 30rem;
+
+            margin-top: 5rem;
+        }
+
+        &::after {
+            content: '';
+            background-image: url('../img/mask.png');
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            top: -5rem;
+            left: -2rem;
+
+            @include max (900) {
+                display: none;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            mask-image: url('../img/mask1.png');
+            mask-repeat: no-repeat;
+        }
+    }
+}
+
+.clientes {
+    background-color: #ececec;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding-bottom: 8.5rem !important;
+
+    article {
+        width: 100%;
+        font-family: $akrobat700;
+        font-size: 1.9rem;
+        color: #414042;
+        margin: 8.5rem 0 3.8rem;
+
+        h3 {
+            font-family: $akrobat800;
+            font-size: 5rem;
+            color: #1f6883;
+            margin-bottom: 3.2rem;
+
+            @include max (900) {
+                font-size: 4.5rem;
+            }
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 15rem;
+        width: 100%;
+
+        figure {
+            margin: 0 auto;
+        }
+
+        span {
+            font-family: $akrobat700;
+            font-size: 2.1rem;
+            line-height: 2.5rem;
+            color: #414042;
+            text-align: center;
+            margin: auto;
+
+            @include max (900) {
+                font-size: 1.4rem;
+                line-height: 2rem;
+            }
+        }
+    }
+}
+
+.areas {
+    padding: 4rem 0;
+    background-color: #336980;
+
+    &__section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 5.575rem 0;
+
+        @include max (1180) {
+            justify-content: center;
+            row-gap: 5rem;
+        }
+
+        @include max (900) {
+            margin: 5rem 0;
+        }
+
+        figure {
+            width: 56.7rem;
+            height: 51.7rem;
+            position: relative;
+
+            @include max (900) {
+                width: 30rem;
+                height: 30rem;
+            }
+
+            &::after {
+                content: '';
+                background-image: url('../img/mask.png');
+                width: 100%;
+                height: 100%;
+
+                position: absolute;
+                top: -5rem;
+                left: -2rem;
+
+                @include max (900) {
+                    display: none;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+
+                mask-image: url('../img/mask1.png');
+                mask-repeat: no-repeat;
+
+                @include max (900) {
+                    mask-image: none;
+                    border-radius: 50%;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        article {
+            max-width: 47.8rem;
+            width: 100%;
+            color: $white;
+            font-size: 1.9rem;
+            line-height: 2.9rem;
+            text-align: justify;
+
+            @include max (900) {
+                font-size: 1.5rem;
+                line-height: 2.1rem;
+            }
+
+            h3 {
+                font-size: 5rem;
+                line-height: 5.4rem;
+                text-transform: uppercase;
+                text-align: left;
+                margin-bottom: 3.5rem;
+
+                @include max (900) {
+                    font-size: 4.5rem;
+                    line-height: 5rem;
+                }
+            }
+
+            p {
+                color: $white;
+            }
+        }
+    }
+}

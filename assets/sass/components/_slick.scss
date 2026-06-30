@@ -1,0 +1,57 @@
+.slick {
+    &-arrow {
+        position: absolute;
+        top: 50%;
+        width: 4.4rem;
+        height: 4.4rem;
+        font-size: 0;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        background-color: #231f20;
+        z-index: 1;
+
+        &::after {
+            font-size: 2.5rem;
+            color: $white;
+        }
+    }
+
+    &-prev {
+        left: 6.52%;
+
+        &::after {
+            content: '<';
+        }
+    }
+
+    &-next {
+        right: 6.52%;
+
+        &::after {
+            content: '>';
+        }
+    }
+
+    &-dots {
+        display: flex;
+        justify-content: center;
+        gap: 1.1rem;
+        list-style: none;
+
+        button {
+            width: 1.2rem;
+            height: 1.2rem;
+            font-size: 0;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            
+            display: block;
+        }
+    }
+
+    &-active button {
+        background-color: #336980;
+    }
+}

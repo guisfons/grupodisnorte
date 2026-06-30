@@ -1,0 +1,331 @@
+.area-atuacao {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    background-color: #ececec;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    row-gap: 6rem;
+
+    article {
+        figure {
+            max-width: 6.2rem;
+        }
+
+        h2 {
+            margin: 1.6rem 0 2.9rem;
+        }
+
+        p {
+            font-family: $akrobat800;
+            color: #414042;
+        }
+    }
+
+    & > figure {
+        max-width: 55.8rem;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+.infraestrutura {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+
+    @include max (500) {
+        flex-direction: column;
+        row-gap: 3rem;
+    }
+
+    article {
+        h2 {
+            color: $white;
+
+            strong {
+                color: #4bc0eb;
+            }
+        }
+
+        p {
+            color: $white;
+        }
+    }
+
+    &__slider {
+        max-width: 56.5rem;
+        width: 100% !important;
+        height: 53.3rem;
+        
+        @include max (900) {
+            max-width: 25rem;
+            height: 25rem;
+        }
+
+        figure {
+            max-width: 56.5rem;
+            width: 100% !important;
+            height: 53.5rem;
+
+            position: relative;
+
+            @include max (900) {
+                max-width: 25rem;
+                height: 25rem;
+            }
+
+            &::after {
+                content: '';
+                background-image: url('../img/mask.png');
+                width: 100%;
+                height: 100%;
+
+                position: absolute;
+                top: -5rem;
+                left: -2rem;
+
+                @include max (900) {
+                    display: none;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+
+                mask-image: url('../img/mask1.png');
+                mask-repeat: no-repeat;
+
+                @include max (900) {
+                    mask-image: none;
+                    border-radius: 50%;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+
+        &--nav {
+            // max-width: 100.9rem;
+            width: 100%;
+            margin-top: 3.5rem;
+            margin: 3.5rem auto 0;
+
+            @include max (900) {
+                width: 47rem;
+            }
+
+            .slick {
+                &-track {
+                    display: flex;
+                    align-items: center;
+                }
+
+                &-arrow {
+                    transform: translateY(-50%);
+                }
+
+                &-next {
+                    right: -6.52%;
+                }
+
+                &-prev {
+                    left: -6.52%;
+                }
+            }
+
+            figure {
+                max-width: 20.2rem;
+                width: 100% !important;
+                height: 14.1rem;
+                transition: .3s ease-in-out;
+                margin-right: 1rem;
+
+                @include max (900) {
+                    max-width: 15rem;
+                    height: 10rem;
+                }
+
+                &.slick-current {
+                    max-width: 23.5rem;
+                    height: 15.7rem;
+
+                    @include max (900) {
+                        max-width: 18rem;
+                        height: 11rem;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+
+.evolucao {
+    padding: 4.5rem 0;
+
+    h2 {
+        color: #414042;
+    }
+
+    figure {
+        max-width: 100%;
+        width: 100%;
+        margin-top: 2rem;
+
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+.resultados {
+    background-color: #003d53;
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+
+    h2 {
+        color: $white;
+        margin-bottom: 3.3rem;
+    }
+
+    p {
+        color: $white;
+        line-height: 2.5rem;
+    }
+
+    figure {
+        max-width: 85.7rem;
+        width: 100%;
+        margin: 4.5rem auto 0;
+
+        img {
+            width: 100%;
+            height: fit-content;
+            object-fit: contain;
+        }
+
+        iframe {
+            width: 100%;
+        }
+    }
+
+    &-mao {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 3rem;
+
+        padding-top: 2rem !important;
+        background-color: #eaeaea;
+
+        @include max (900) {
+            justify-content: center;
+        }
+    
+        p {
+            max-width: 42.2rem;
+            width: 100%;
+            margin-top: 2.4rem;
+        }
+
+        figure {
+            display: flex;
+        }
+    }
+}
+
+.merchandising {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+    background-color: #075c7b;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    @include max (1100) {
+        justify-content: center;
+        row-gap: 3rem;
+    }
+
+    article {
+        max-width: 41.9rem;
+        width: 100%;
+
+        h2 {
+            color: $white;
+            margin-bottom: 3rem;
+            word-break: break-all;
+        }
+    
+        p {
+            color: $white;
+        }
+    }
+
+    &__images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 56.3rem;
+        width: 100%;
+
+        gap: 1rem;
+
+        figure {
+            max-width: 17.5rem;
+            width: 100%;
+            height: 16.3rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    a {
+        width: 20.8rem;
+        height: 4.6rem;
+        border-radius: 2.3rem;
+        background-color: #003d53;
+
+        font-family: $akrobat800;
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+        color: $white;
+        text-transform: uppercase;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin: 1.2rem auto 0;
+
+        @include max (900) {
+            font-size: 2rem;
+            line-height: 2rem;
+        }
+    }
+}

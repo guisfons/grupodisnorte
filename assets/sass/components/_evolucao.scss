@@ -1,0 +1,14 @@
+.info {
+    cursor: pointer;
+    
+    &-hidden {
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s ease-in-out;
+    }
+
+    &-active {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
